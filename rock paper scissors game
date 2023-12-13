@@ -1,0 +1,28 @@
+import random
+
+def computer_choice():
+    choices = ['rock', 'paper', 'scissors']
+    return random.choice(choices)
+
+def user_choice():
+    user_input = input("Choose rock, paper, or scissors: ").lower()
+    while user_input not in ['rock', 'paper', 'scissors']:
+        print("Invalid choice. Please choose rock, paper, or scissors.")
+        user_input = input("Choose rock, paper, or scissors: ").lower()
+    return user_input
+
+def game():
+    computer_hand = computer_choice()
+    user_hand = user_choice()
+
+    if computer_hand == user_hand:
+        return "It's a tie!"
+    elif (computer_hand == 'rock' and user_hand == 'scissors') or \
+        (computer_hand == 'scissors' and user_hand == 'paper') or \
+        (computer_hand == 'paper' and user_hand == 'rock'):
+        return "Computer wins!"
+    else:
+        return "User wins!"
+
+# Example usage
+print(game())
